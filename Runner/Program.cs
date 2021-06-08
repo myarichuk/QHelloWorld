@@ -34,10 +34,8 @@ namespace Runner
             const int MaxRandom = 10;
             Console.WriteLine($"Random numbers 0..{MaxRandom}:");
             var results = new List<long>(iterations);
-            for(int i = 0; i < iterations; i++)
-            {
+            for(int i = 0; i < 10; i++)
                 results.Add(await Rng.Run(sim, MaxRandom));
-            }
 
             Console.WriteLine(string.Join(",", results));
 

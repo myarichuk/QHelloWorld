@@ -27,6 +27,11 @@
         X(q2);
     }
 
+    //note: Deutsch-Jozsa algorithm takes the idea in this operation
+    //and generalizes it to have an input of N qubits, so the signature 
+    //of the function will accept the type of '(Qubit[], Qubit) => Unit)'
+    //In generalized version, the algorithm will need N+1 qubits for 
+    //N function parameters
     operation DeutschJozsa(oracle : ((Qubit, Qubit) => Unit)) : Bool {
         mutable isFunctionConstant = true;
         use q = Qubit(); //when initialized, qubit is at state |0>
