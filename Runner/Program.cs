@@ -43,10 +43,17 @@ namespace Runner
 
             Console.WriteLine("=======================");
 
-            await DeutschJozsa.Run(sim, (ICallable)sim.CreateInstance(typeof(Balanced)));
-            await DeutschJozsa.Run(sim, (ICallable)sim.CreateInstance(typeof(ConstantOne)));
-            await DeutschJozsa.Run(sim, (ICallable)sim.CreateInstance(typeof(ConstantZero)));
-            await DeutschJozsa.Run(sim, (ICallable)sim.CreateInstance(typeof(BalancedOpposite)));
+            Console.WriteLine(nameof(Balanced) + "->" + 
+                ((await DeutschJozsa.Run(sim, (ICallable)sim.CreateInstance(typeof(Balanced)))) ? "constant" : "balanced"));
+
+            Console.WriteLine(nameof(ConstantOne) + "->" + 
+                ((await DeutschJozsa.Run(sim, (ICallable)sim.CreateInstance(typeof(ConstantOne)))) ? "constant" : "balanced"));
+
+            Console.WriteLine(nameof(ConstantZero) + "->" + 
+                ((await DeutschJozsa.Run(sim, (ICallable)sim.CreateInstance(typeof(ConstantZero)))) ? "constant" : "balanced"));
+
+            Console.WriteLine(nameof(BalancedOpposite) + "->" + 
+                ((await DeutschJozsa.Run(sim, (ICallable)sim.CreateInstance(typeof(BalancedOpposite)))) ? "constant" : "balanced"));
         }
     }
 }

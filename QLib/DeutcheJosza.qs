@@ -14,7 +14,8 @@
         X(q2);
     }
 
-    //f(0) = 1, f(1) = 0
+    //CNOT is pretty much quantum version of XOR
+    //see https://en.wikipedia.org/wiki/Controlled_NOT_gate
     operation Balanced(q : Qubit, q2 : Qubit) : Unit is Adj  {
         CNOT(q, q2);
     }
@@ -24,7 +25,8 @@
         X(q2);
     }
 
-    operation DeutschJozsa(oracle : ((Qubit, Qubit) => Unit)) : Unit {
+    operation DeutschJozsa(oracle : ((Qubit, Qubit) => Unit)) : Bool {
+        mutable isFunctionConstant = true;
         use q = Qubit(); //when initialized, qubit is at state |0>
         use q2 = Qubit();
 
@@ -40,14 +42,12 @@
         // |0> means the functions is constant
         if (M(q) != Zero)
         {
-            Message("Balanced");
-        }
-        else
-        {
-            Message("Constant");
+            set isFunctionConstant = false;
         }
 
         Reset(q);
         Reset(q2);
+
+        return isFunctionConstant;
     }
 }
