@@ -43,10 +43,10 @@ namespace Runner
 
             Console.WriteLine("=======================");
 
-            await DeutschJozsa.Run(sim, new ConstantOne(sim));
-            await DeutschJozsa.Run(sim, new Balanced(sim));
-            await DeutschJozsa.Run(sim, new ConstantZero(sim));
-            await DeutschJozsa.Run(sim, new BalancedOpposite(sim));
+            await DeutschJozsa.Run(sim, (ICallable)sim.CreateInstance(typeof(Balanced)));
+            await DeutschJozsa.Run(sim, (ICallable)sim.CreateInstance(typeof(ConstantOne)));
+            await DeutschJozsa.Run(sim, (ICallable)sim.CreateInstance(typeof(ConstantZero)));
+            await DeutschJozsa.Run(sim, (ICallable)sim.CreateInstance(typeof(BalancedOpposite)));
         }
     }
 }

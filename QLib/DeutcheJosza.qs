@@ -5,13 +5,13 @@
 
     //credit: some stuff taken/adapted from https://www.strathweb.com/2021/02/introduction-to-quantum-computing-with-q-part-15-deutsch-jozsa-algorithm/
 
-    // f(x) = 0
-    operation ConstantZero(x : Qubit[], y : Qubit) : Unit is Adj {
+    // f(q1) = 0
+    operation ConstantZero(q1 : Qubit, q2 : Qubit) : Unit is Adj {
     }
 
-    // f(x) = 1
-    operation ConstantOne(x : Qubit[], y : Qubit) : Unit is Adj {
-        X(y);
+    // f(q1) = 1
+    operation ConstantOne(q1 : Qubit, q2 : Qubit) : Unit is Adj {
+        X(q2);
     }
 
     //f(0) = 1, f(1) = 0
@@ -25,7 +25,9 @@
     }
 
     operation DeutschJozsa(oracle : ((Qubit, Qubit) => Unit)) : Unit {
-        use (q, q2) = (Qubit(), Qubit());
+        use q = Qubit();
+        use q2 = Qubit();
+
         X(q2);
 
         H(q);
