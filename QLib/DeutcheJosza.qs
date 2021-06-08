@@ -28,7 +28,7 @@
         use q = Qubit();
         use q2 = Qubit();
 
-        X(q2);
+        X(q2); //start from |1>
 
         H(q);
         H(q2);
