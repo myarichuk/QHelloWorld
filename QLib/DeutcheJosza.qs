@@ -6,12 +6,14 @@
     //credit: some stuff taken/adapted from https://www.strathweb.com/2021/02/introduction-to-quantum-computing-with-q-part-15-deutsch-jozsa-algorithm/
 
     // f(q1) = 0
+    //note: assuming q2 is "untouched" -> is in |0> state
     operation ConstantZero(q1 : Qubit, q2 : Qubit) : Unit is Adj {
     }
 
     // f(q1) = 1
+    //note: assuming q2 is "untouched" -> is in |0> state
     operation ConstantOne(q1 : Qubit, q2 : Qubit) : Unit is Adj {
-        X(q2);
+        X(q2); //this flips the state of q2
     }
 
     //CNOT is pretty much quantum version of XOR
