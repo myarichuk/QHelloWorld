@@ -25,10 +25,10 @@
     }
 
     operation DeutschJozsa(oracle : ((Qubit, Qubit) => Unit)) : Unit {
-        use q = Qubit();
+        use q = Qubit(); //when initialized, qubit is at state |0>
         use q2 = Qubit();
 
-        X(q2); //start from |1>
+        X(q2); //flip this one to |1>
 
         H(q);
         H(q2);
