@@ -40,6 +40,13 @@ namespace Runner
             }
 
             Console.WriteLine(string.Join(",", results));
+
+            Console.WriteLine("=======================");
+
+            await DeutschJozsa.Run(sim, new ConstantOne(sim));
+            await DeutschJozsa.Run(sim, new Balanced(sim));
+            await DeutschJozsa.Run(sim, new ConstantZero(sim));
+            await DeutschJozsa.Run(sim, new BalancedOpposite(sim));
         }
     }
 }
