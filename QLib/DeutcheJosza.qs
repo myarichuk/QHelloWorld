@@ -3,7 +3,7 @@
     open Microsoft.Quantum.Canon;
     open Microsoft.Quantum.Intrinsic;
 
-    //credit: some stuff taken/adapted from https://www.strathweb.com/2021/02/introduction-to-quantum-computing-with-q-part-15-deutsch-jozsa-algorithm/
+    //credit: adapted from https://www.strathweb.com/2021/02/introduction-to-quantum-computing-with-q-part-15-deutsch-jozsa-algorithm/
 
     // f(q1) = 0
     //note: assuming q2 is "untouched" -> is in |0> state
